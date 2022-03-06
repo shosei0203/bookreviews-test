@@ -1,0 +1,3 @@
+digraph "bookreviews:bookreviews:jar:1.0-SNAPSHOT" { 
+	"bookreviews:bookreviews:jar:1.0-SNAPSHOT" -> "javax.servlet:javax.servlet-api:jar:4.0.0:provided" ; 
+ } 
