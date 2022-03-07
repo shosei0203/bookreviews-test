@@ -1,4 +1,4 @@
-package model;
+package bookreviews.model;
 
 public class ReviewsDTO {
     private int postId;

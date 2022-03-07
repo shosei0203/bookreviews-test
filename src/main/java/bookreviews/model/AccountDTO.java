@@ -1,4 +1,4 @@
-package model;
+package bookreviews.model;
 
 public class AccountDTO {
     private String loginId;

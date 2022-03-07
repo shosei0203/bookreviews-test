@@ -1,6 +1,6 @@
-package model;
+package bookreviews.model;
 
-import dao.*;
+import bookreviews.dao.AccountDAO;
 
 public class LoginLogic {
     public boolean execute(UserForm user) {

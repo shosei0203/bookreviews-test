@@ -1,7 +1,11 @@
-package dao;
+package bookreviews.dao;
 
-import java.sql.*;
-import model.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import bookreviews.model.UserForm;
 
 public class UserCreateDAO {
 
@@ -13,9 +17,9 @@ public class UserCreateDAO {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             // DBへの接続情報を変数に格納する
-            String url = "jdbc:mysql://localhost:3306/book_reviews?useUnicode=true&amp&characterEncoding=utf8";
-            String dbUser = "root";
-            String password = "sakagamis0203";
+            String url = "jdbc:mysql://us-cdbr-east-05.cleardb.net/heroku_061d54e7062a5b4?reconnect=true&useSSL=false&useUnicode=true&characterEncoding=utf8&characterSetResults=utf8";
+            String dbUser = "b2ad53d76c0eec";
+            String password = "2160bdd0";
             String insertSql = "INSERT INTO users (personId,username,pass,mail) VALUES (?, 'A', ?, 'B')";
 
             // 接続情報を取得してDBに接続する

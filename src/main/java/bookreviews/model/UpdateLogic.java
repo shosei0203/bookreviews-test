@@ -1,6 +1,6 @@
-package model;
+package bookreviews.model;
 
-import dao.*;
+import bookreviews.dao.ReviewsDAO;
 
 public class UpdateLogic {
     public ReviewsDTO execute(String loginId, int postId) {

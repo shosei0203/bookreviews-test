@@ -1,10 +1,17 @@
-package servlet;
+package bookreviews.servlet;
 
-import java.io.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import model.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import bookreviews.model.LoginLogic;
+import bookreviews.model.UserForm;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
@@ -17,7 +24,7 @@ public class LoginServlet extends HttpServlet {
         session.invalidate();
 
         // ログイン画面に遷移
-        String view = "/WEB-INF/views/login.jsp";
+        String view = "/WEB-INF/login.jsp";
         RequestDispatcher dispatcher = request.getRequestDispatcher(view);
         dispatcher.forward(request, response);
     }
@@ -50,7 +57,7 @@ public class LoginServlet extends HttpServlet {
             // エラーメッセージを格納し、ログイン画面に戻す。
             request.setAttribute("message", "ログイン情報に誤りがあります。");
 
-            String view = "/WEB-INF/views/login.jsp";
+            String view = "/WEB-INF/login.jsp";
             RequestDispatcher dispatcher = request.getRequestDispatcher(view);
             dispatcher.forward(request, response);
 

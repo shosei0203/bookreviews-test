@@ -1,4 +1,4 @@
-package model;
+package bookreviews.model;
 
 import java.io.*;
 import javax.servlet.*;
@@ -6,9 +6,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.util.*;
 import java.sql.*;
-import dao.*;
-import model.*;
-import servlet.*;
+import bookreviews.dao.*;
+import bookreviews.model.*;
+import bookreviews.servlet.*;
 
 class main {
 

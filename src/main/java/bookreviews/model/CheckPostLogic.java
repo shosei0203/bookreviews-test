@@ -1,4 +1,4 @@
-package model;
+package bookreviews.model;
 
 import java.util.*;
 

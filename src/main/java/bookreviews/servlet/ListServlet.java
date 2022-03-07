@@ -1,11 +1,11 @@
-package servlet;
+package bookreviews.servlet;
 
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.util.*;
-import model.*;
+import bookreviews.model.*;
 
 @WebServlet("/list")
 public class ListServlet extends HttpServlet {
