@@ -4,6 +4,6 @@
         "c:\\Program Files\\Apache Software Foundation\\Tomcat 10.0\\lib\\servlet-api.jar",
         "c:\\Program Files\\Apache Software Foundation\\Tomcat 9.0\\lib\\servlet-api.jar"
     ],
-    "maven.view": "hierarchical",
+    "maven.view": "flat",
     "java.dependency.packagePresentation": "hierarchical"
 }
