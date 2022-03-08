@@ -16,7 +16,8 @@
   </properties>
 
     <build>
-        <plugins>
+    <sourceDirectory>${project.basedir}\src\main\webapp\WEB-INF\classes</sourceDirectory>
+       <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -29,7 +30,7 @@
         		<artifactId>maven-war-plugin</artifactId>
         		<version>3.0.0</version>
         		<configuration>
-         		     <warSourceDirectory>webapp</warSourceDirectory>
+         		     <warSourceDirectory>WebContent</warSourceDirectory>
         		</configuration>
       		</plugin>
 
