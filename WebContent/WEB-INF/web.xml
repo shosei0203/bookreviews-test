@@ -70,7 +70,7 @@
 
     <servlet>
         <servlet-name>Login</servlet-name>
-        <servlet-class>WebContent.WEB-INF.classes.servlet.LoginServlet</servlet-class>
+        <servlet-class>bookreviews.servlet.LoginServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
