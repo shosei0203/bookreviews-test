@@ -78,6 +78,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>indexLogin</servlet-name>
+        <servlet-class>WEB-INF.classes.servlet.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>indexLogin</servlet-name>
+        <url-pattern>/inlogin</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>Logout</servlet-name>
         <servlet-class>servlet.LogoutServlet</servlet-class>
     </servlet>
