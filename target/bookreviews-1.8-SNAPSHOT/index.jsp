@@ -8,7 +8,7 @@
 <body>
     <div>
         <h1>ようこそ</h1>
-        <a href="./login">ログインページへ＞＞</a>
+        <a href="https://quiet-island-17618.herokuapp.com/login">ログインページへ＞＞</a>
     </div>
 </body>
 </html>
