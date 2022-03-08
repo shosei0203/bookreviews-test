@@ -4,15 +4,15 @@
 
   <groupId>bookreviews</groupId>
   <artifactId>bookreviews</artifactId>
-  <version>1.0-SNAPSHOT</version>
-  <packaging>jar</packaging>
+  <version>1.1-SNAPSHOT</version>
+  <packaging>war</packaging>
 
   <name>bookreviews</name>
   <url>http://maven.apache.org</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <java.version>1.8</java.version>
+    <java.version>11</java.version>
   </properties>
 
     <build>
@@ -33,7 +33,7 @@
         		</configuration>
       		</plugin>
 
-	      <!-- ƒAƒvƒŠˆË‘¶‚Ìjarƒtƒ@ƒCƒ‹‚ðì¬‚·‚é‚½‚ß‚Ìƒvƒ‰ƒOƒCƒ“ -->
+	      <!-- ï¿½Aï¿½vï¿½ï¿½ï¿½Ë‘ï¿½ï¿½ï¿½jarï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ì¬ï¿½ï¿½ï¿½é‚½ï¿½ß‚Ìƒvï¿½ï¿½ï¿½Oï¿½Cï¿½ï¿½ -->
     	  <!-- https://devcenter.heroku.com/articles/deploying-java -->
       		<plugin>
         		<groupId>org.apache.maven.plugins</groupId>
