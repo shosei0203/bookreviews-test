@@ -8,7 +8,7 @@
 <body>
     <div>
         <h1>ようこそ</h1>
-        <a href="login">ログインページへ＞＞</a>
+        <a href="./WEB-INF/classes/servlet/login">ログインページへ＞＞</a>
     </div>
 </body>
 </html>
