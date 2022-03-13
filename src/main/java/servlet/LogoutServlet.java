@@ -1,4 +1,4 @@
-package bookreviews.servlet;
+package servlet;
 
 import java.io.IOException;
 

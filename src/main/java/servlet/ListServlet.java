@@ -1,18 +1,14 @@
-package bookreviews.servlet;
+package servlet;
 
-import java.io.IOException;
-
-import javax.servlet.ServletException;
+import java.io.*;
+import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
+import java.util.*;
+import model.*;
 
-import bookreviews.model.DeleteLogic;
-
-@WebServlet("/delete")
-public class DeleteServlet extends HttpServlet {
+@WebServlet("/list")
+public class ListServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         this.doPost(request, response);
@@ -32,16 +28,20 @@ public class DeleteServlet extends HttpServlet {
         } else {
 
             // セッション・画面の情報を変数に格納していく
-            request.setAttribute("loginId", loginId);
-            int postId = Integer.parseInt(request.getParameter("postId"));
+            session.setAttribute("loginId", loginId);
 
-            // 削除処理を実行する。
-            DeleteLogic deletePost = new DeleteLogic();
-            deletePost.execute(postId, loginId);
-            request.setAttribute("message", postId + "を削除しました。");
+            // ログインIDに紐づく対象レビューデータを取得する
+            ListSelectLogic getList = new ListSelectLogic();
+            List<ReviewsDTO> reviews = getList.execute(loginId);
+            request.setAttribute("reviews", reviews);
 
-            // 処理後、次の画面に遷移する。
-            response.sendRedirect("list");
+            // 一覧表示を行う画面に遷移する。
+            String view = "/WEB-INF/views/list.jsp";
+            RequestDispatcher dispatcher = request.getRequestDispatcher(view);
+            dispatcher.forward(request, response);
+
         }
+
     }
+
 }

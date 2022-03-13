@@ -1,8 +1,6 @@
-package bookreviews.servlet;
+package servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,11 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import bookreviews.model.NewLogic;
-import bookreviews.model.ReviewsDTO;
+import model.ReviewsDTO;
+import model.ShowLogic;
 
-@WebServlet("/new")
-public class NewServlet extends HttpServlet {
+@WebServlet("/show")
+public class ShowServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         this.doPost(request, response);
@@ -36,30 +34,34 @@ public class NewServlet extends HttpServlet {
         } else {
 
             // セッション・画面の情報を変数に格納していく
-            request.setAttribute("message", "Create your post");
-            request.setAttribute("personId", loginId);
-            // 最大＋1の投稿IDを取得する。
-            NewLogic getPostId = new NewLogic();
-            ReviewsDTO postId = getPostId.execute(loginId);
+            request.setAttribute("loginId", loginId);
+            int postId = Integer.parseInt(request.getParameter("postId"));
 
-            // 取得したデータを変数に格納する
-            int intPostId = postId.getPostId();
+            // 詳細画面に表示するレビュー情報を取得して、値をセットしていく
+            ShowLogic getPost = new ShowLogic();
+            ReviewsDTO result = getPost.execute(loginId, postId);
+
+            int intPostId = result.getPostId();
             request.setAttribute("postId", intPostId);
 
-            // 次の処理画面に遷移する
-            List<String> errorMessage = (ArrayList<String>) request.getAttribute("errorMessage");
-            if (errorMessage == null) {
-                List<String> zeroMessage = new ArrayList<String>();
-                request.setAttribute("errorMessage", zeroMessage);
-            } else {
-                if (errorMessage.size() != 0) {
-                    request.setAttribute("errorMessage", errorMessage);
-                }
-            }
-            String view = "/WEB-INF/views/new.jsp";
+            String title = result.getTitle();
+            request.setAttribute("title", title);
+
+            String content = result.getContent().replaceAll("\n", "<br>");
+            request.setAttribute("content", content);
+
+            int stars = result.getStars();
+            request.setAttribute("stars", stars);
+
+            String image = result.getImage();
+            request.setAttribute("image", image);
+
+            request.setAttribute("message", "This is your post " + postId);
+
+            // 取得したデータを表示させる詳細画面への遷移を行う。
+            String view = "/WEB-INF/views/post.jsp";
             RequestDispatcher dispatcher = request.getRequestDispatcher(view);
             dispatcher.forward(request, response);
-
         }
     }
 }

@@ -1,6 +1,6 @@
-package bookreviews.model;
+package model;
 
-import bookreviews.dao.ReviewsDAO;
+import dao.ReviewsDAO;
 
 public class DeleteLogic {
     public void execute(int postId, String loginId) {

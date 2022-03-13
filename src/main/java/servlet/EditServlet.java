@@ -1,4 +1,4 @@
-package bookreviews.servlet;
+package servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import bookreviews.model.ReviewsDTO;
-import bookreviews.model.ShowLogic;
+import model.ReviewsDTO;
+import model.ShowLogic;
 
 @WebServlet("/edit")
 public class EditServlet extends HttpServlet {

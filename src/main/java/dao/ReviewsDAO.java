@@ -1,4 +1,4 @@
-package bookreviews.dao;
+package dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import bookreviews.model.ReviewsDTO;
+import model.ReviewsDTO;
 
 public class ReviewsDAO {
 

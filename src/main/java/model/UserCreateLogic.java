@@ -1,7 +1,7 @@
-package bookreviews.model;
+package model;
 
-import bookreviews.dao.AccountDAO;
-import bookreviews.dao.UserCreateDAO;
+import dao.AccountDAO;
+import dao.UserCreateDAO;
 
 public class UserCreateLogic {
     public boolean execute(UserForm user) {

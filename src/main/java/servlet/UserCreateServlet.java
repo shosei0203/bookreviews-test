@@ -1,4 +1,4 @@
-package bookreviews.servlet;
+package servlet;
 
 import java.io.IOException;
 
@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import bookreviews.model.UserCreateLogic;
-import bookreviews.model.UserForm;
+import model.UserCreateLogic;
+import model.UserForm;
 
 @WebServlet("/userCreate")
 public class UserCreateServlet extends HttpServlet {

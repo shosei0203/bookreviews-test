@@ -1,8 +1,8 @@
-package bookreviews.model;
+package model;
 
 import java.util.List;
 
-import bookreviews.dao.ReviewsDAO;
+import dao.ReviewsDAO;
 
 public class ListSelectLogic {
     public List<ReviewsDTO> execute(String loginId) {
