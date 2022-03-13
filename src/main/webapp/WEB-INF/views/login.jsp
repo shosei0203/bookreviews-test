@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
@@ -14,7 +14,7 @@
         <%= request.getAttribute("message") %> <% } %>
 
         <h1>ログイン</h1>
-        <form action='https://quiet-island-17618.herokuapp.com/login' method='post'>
+        <form action='login' method='post'>
             <label for='loginId'>ログインID：</label>
             <input type='text' name='loginId' value=''>
             <p></p>
@@ -22,7 +22,7 @@
             <input type='password' name='pass' value=''>
             <p></p>
             <button type='submit'>ログイン</button>
-            <a href='https://quiet-island-17618.herokuapp.com/newUser'>新規登録画面</a>
+            <a href='newUser'>新規登録画面</a>
         </form>
     </body>
 </html>

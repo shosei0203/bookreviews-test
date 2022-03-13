@@ -24,7 +24,7 @@ public class LoginServlet extends HttpServlet {
         session.invalidate();
 
         // ログイン画面に遷移
-        String view = "/login.jsp";
+        String view = "/WEB-INF/views/login.jsp";
         RequestDispatcher dispatcher = request.getRequestDispatcher(view);
         dispatcher.forward(request, response);
     }
@@ -57,7 +57,7 @@ public class LoginServlet extends HttpServlet {
             // エラーメッセージを格納し、ログイン画面に戻す。
             request.setAttribute("message", "ログイン情報に誤りがあります。");
 
-            String view = "/login.jsp";
+            String view = "/WEB-INF/views/login.jsp";
             RequestDispatcher dispatcher = request.getRequestDispatcher(view);
             dispatcher.forward(request, response);
 
