@@ -24,7 +24,7 @@ public class LoginServlet extends HttpServlet {
         session.invalidate();
 
         // ログイン画面に遷移
-        String view = "/WEB-INF/views/login.jsp";
+        String view = "https://quiet-island-17618.herokuapp.com/index.jsp";
         RequestDispatcher dispatcher = request.getRequestDispatcher(view);
         dispatcher.forward(request, response);
     }
@@ -57,7 +57,7 @@ public class LoginServlet extends HttpServlet {
             // エラーメッセージを格納し、ログイン画面に戻す。
             request.setAttribute("message", "ログイン情報に誤りがあります。");
 
-            String view = "/WEB-INF/views/login.jsp";
+            String view = "/WEB-INF/views/error.jsp";
             RequestDispatcher dispatcher = request.getRequestDispatcher(view);
             dispatcher.forward(request, response);
 
