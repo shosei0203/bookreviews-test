@@ -25,7 +25,7 @@
             <input type='password' name='check' value=''>
             <p></p>
             <button type='submit'>新規登録</button>
-            <a href='login'>戻る</a>
+            <a href='https://quiet-island-17618.herokuapp.com/index.jsp'>戻る</a>
         </form>
     </body>
 </html>
