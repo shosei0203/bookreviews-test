@@ -12,6 +12,6 @@
         <h1>ログアウト画面</h1>
 
         <p>ログアウトしました</p>
-        <p><a href="https://quiet-island-17618.herokuapp.com/login.jsp">ログイン画面へ</a></p>
+        <p><a href="https://quiet-island-17618.herokuapp.com/index.jsp">ログイン画面へ</a></p>
     </body>
 </html>

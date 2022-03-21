@@ -14,7 +14,7 @@
          <%= request.getAttribute("message") %> <% } %>
 
         <div>
-           <a href="https://quiet-island-17618.herokuapp.com/login.jsp">戻る</a>
+           <a href="https://quiet-island-17618.herokuapp.com/index.jsp">戻る</a>
         </div>
     </body>
 </html>
