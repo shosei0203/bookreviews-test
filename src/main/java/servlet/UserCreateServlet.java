@@ -38,6 +38,7 @@ public class UserCreateServlet extends HttpServlet {
             boolean resultid = checkBool.userChecker(loginId);
             if (resultid) {
                 request.setAttribute("message", "このIDはすでに登録されています。");
+
             } else {
 
                 // 画面の値をUserFormに格納する。
@@ -64,10 +65,11 @@ public class UserCreateServlet extends HttpServlet {
                     request.setAttribute("message", "セッションが切れました。再度ログインしてください。");
                 }
             }
-            // チェックエラーもしくはログイン情報を得られなかった場合、ユーザー登録画面に遷移。
-            String view = "/WEB-INF/views/newuser.jsp";
-            RequestDispatcher dispatcher = request.getRequestDispatcher(view);
-            dispatcher.forward(request, response);
         }
+        // チェックエラーもしくはログイン情報を得られなかった場合、ユーザー登録画面に遷移。
+        String view = "/WEB-INF/views/newuser.jsp";
+        RequestDispatcher dispatcher = request.getRequestDispatcher(view);
+        dispatcher.forward(request, response);
+
     }
 }

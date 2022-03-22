@@ -21,7 +21,7 @@
             <label for='pass'>パスワード：</label>
             <input type='password' name='pass' value=''>
             <p></p>
-            <label for='check'>パスワード：</label>
+            <label for='check'>パスワード確認：</label>
             <input type='password' name='check' value=''>
             <p></p>
             <button type='submit'>新規登録</button>
