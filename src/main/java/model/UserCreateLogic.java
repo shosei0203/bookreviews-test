@@ -21,8 +21,17 @@ public class UserCreateLogic {
         return selectAccount != null;
     }
 
+    public boolean userChecker(String loginId, String pass) {
+        if (loginId.length() > 8 || pass.length() > 8) {
+            // いずれかの項目がNullまたはチェック項目とパスワードが不一致の場合
+            return true;
+        }
+        return false;
+    }
+
     public boolean userChecker(String loginId, String pass, String check) {
         if ((loginId == "" || pass == "" || check == "") || !(pass.equals(check))) {
+            // いずれかの項目がNullまたはチェック項目とパスワードが不一致の場合
             return true;
         }
         return false;

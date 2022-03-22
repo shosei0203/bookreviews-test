@@ -35,34 +35,40 @@ public class UserCreateServlet extends HttpServlet {
             request.setAttribute("message", "入力に誤りがあります。");
 
         } else {
-            boolean resultid = checkBool.userChecker(loginId);
-            if (resultid) {
-                request.setAttribute("message", "このIDはすでに登録されています。");
+            boolean resultLength = checkBool.userChecker(loginId, pass);
+            if (resultLength) {
+                request.setAttribute("message", "ID/パスワードは8文字以内で登録してください。");
 
             } else {
-
-                // 画面の値をUserFormに格納する。
-                UserForm loginUser = new UserForm(loginId, pass);
-
-                // ログインIDとパスワード登録後、DB情報から取得できることを確認する。
-                UserCreateLogic userCreate = new UserCreateLogic();
-                boolean isLogin = userCreate.execute(loginUser);
-
-                if (isLogin) {
-                    // セッションを作成する
-                    HttpSession session = request.getSession();
-                    session.setAttribute("loginId", loginUser.getLoginId());
-
-                    // 登録完了画面に遷移
-                    request.setAttribute("message", "成功");
-
-                    String view = "/WEB-INF/views/usercreate.jsp";
-                    RequestDispatcher dispatcher = request.getRequestDispatcher(view);
-                    dispatcher.forward(request, response);
+                boolean resultid = checkBool.userChecker(loginId);
+                if (resultid) {
+                    request.setAttribute("message", "このIDはすでに登録されています。");
 
                 } else {
-                    // エラーメッセージを格納し、ログイン画面に戻す。
-                    request.setAttribute("message", "セッションが切れました。再度ログインしてください。");
+
+                    // 画面の値をUserFormに格納する。
+                    UserForm loginUser = new UserForm(loginId, pass);
+
+                    // ログインIDとパスワード登録後、DB情報から取得できることを確認する。
+                    UserCreateLogic userCreate = new UserCreateLogic();
+                    boolean isLogin = userCreate.execute(loginUser);
+
+                    if (isLogin) {
+                        // セッションを作成する
+                        HttpSession session = request.getSession();
+                        session.setAttribute("loginId", loginUser.getLoginId());
+
+                        // 登録完了画面に遷移
+                        request.setAttribute("message", "成功");
+
+                        String view = "/WEB-INF/views/usercreate.jsp";
+                        RequestDispatcher dispatcher = request.getRequestDispatcher(view);
+                        dispatcher.forward(request, response);
+
+                    } else {
+                        // エラーメッセージを格納し、ログイン画面に戻す。
+                        request.setAttribute("message", "セッションが切れました。再度ログインしてください。");
+                    }
                 }
             }
         }
