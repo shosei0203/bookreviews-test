@@ -1,14 +1,13 @@
 package model;
 
 import dao.AccountDAO;
-import dao.UserCreateDAO;
 
 public class UserCreateLogic {
     public boolean execute(UserForm user) {
 
         // UserCreateServletからログインIDとパスワードを取得してDBに登録する
         // アカウント情報をDBへ登録するDAOをインスタンス化
-        UserCreateDAO insertDao = new UserCreateDAO();
+        AccountDAO insertDao = new AccountDAO();
         insertDao.userCreate(user);
 
         // LoginServletからログインIDとパスワードがDB情報と一致していることを確認するためのロジック
@@ -27,5 +26,17 @@ public class UserCreateLogic {
             return true;
         }
         return false;
+    }
+
+    public boolean userChecker(String loginId) {
+        // AccountDAOのfindLoginUserメソッドをformに入った値を引数にして呼び出す
+        // DAOにあるSELECT文で見つかったユーザーが返ってくるか、取得できずエラーでNullが返ってくるか
+        // DAOからはAccountDTO型でReturnされてくる
+        AccountDAO selectDao = new AccountDAO();
+        String selectAccount = selectDao.findLoginId(loginId);
+
+        // 返ってきたデータがNullならfalse,何か返ってきてるならtrueとして評価してreturnする。
+        return selectAccount != null;
+
     }
 }

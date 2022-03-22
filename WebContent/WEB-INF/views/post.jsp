@@ -11,7 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-        <title>本棚APP</title>
+        <title>BookReview</title>
         <style>body {padding: 30px;}</style>
     </head>
     <body>

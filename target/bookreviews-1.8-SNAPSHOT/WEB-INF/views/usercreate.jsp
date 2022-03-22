@@ -27,6 +27,6 @@
         </form>
 
         <p><a href="#" onclick="document.listlogin.submit();return false;">ログイン</a></p>
-        <p><a href="login">ログイン画面へ戻る</a></p>
+        <p><a href="https://quiet-island-17618.herokuapp.com/index.jsp">ログイン画面へ戻る</a></p>
     </body>
 </html>
