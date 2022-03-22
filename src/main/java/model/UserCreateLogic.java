@@ -22,8 +22,10 @@ public class UserCreateLogic {
     }
 
     public boolean userChecker(String loginId, String pass) {
-        if (loginId.length() > 8 || pass.length() > 8) {
-            // いずれかの項目がNullまたはチェック項目とパスワードが不一致の場合
+        int loginIdLength = loginId.length();
+        int passLength = loginId.length();
+        if (loginIdLength > 8 || passLength > 8) {
+            // ログインIDまたはパスワードが9文字以上の場合
             return true;
         }
         return false;
