@@ -27,6 +27,7 @@
                 <th>No.</th>
                 <th>ID</th>
                 <th>タイトル</th>
+                <th>評価</th>
             </tr>
         <% 
             for (ReviewsDTO review : reviews) {
@@ -46,6 +47,7 @@
                         </form>
                         <a href="#" onclick="document.<%='a'+strShowPostId %>.submit();return false;"><%= review.getTitle() %></a>
                     </td>
+                    <td><%= review.getStars() %></td>
                 </tr>
             <% } %>
         </table>
