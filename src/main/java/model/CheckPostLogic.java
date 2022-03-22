@@ -9,6 +9,12 @@ public class CheckPostLogic {
         if (title == "") {
             String message = "タイトルを入力してください";
             errorMessage.add(message);
+        } else {
+            int titleLength = title.length();
+            if (titleLength > 30) {
+                String message = "タイトルは30文字以内で入力してください";
+                errorMessage.add(message);
+            }
         }
     }
 
