@@ -5,7 +5,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
         <title>BookReview</title>
-        <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
     <body>
         <h1>ログイン</h1>
