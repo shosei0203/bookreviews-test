@@ -36,7 +36,7 @@
            </div>
            <div class="navbar-menu">
                <div class="navbar-end">
-                   <a class="navbar-item" href="https://quiet-island-17618.herokuapp.com/index.jsp">
+                   <a class="navbar-item" href="login">
                        <span class="icon has-text-orange"><i class="fas fa-sign-in-alt"></i></span>
                        <span>Log out</span>
                    </a> 

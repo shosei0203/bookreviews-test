@@ -113,7 +113,7 @@
                     value="新規登録"
                     class="button is-link width-100"
                   />
-                  <a class="button is-link width-100" href='https://quiet-island-17618.herokuapp.com/index.jsp'>戻る</a>
+                  <a class="button is-link width-100" href='login'>戻る</a>
                 </form>
                 </div>
               </div>
