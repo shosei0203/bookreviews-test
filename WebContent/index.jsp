@@ -40,7 +40,7 @@ pageEncoding="UTF-8"%>
         <div>
             <div class="container"></div>
             <h1>ようこそ</h1>
-            <a class="button is-link is-rounded" href="https://quiet-island-17618.herokuapp.com/login.jsp">ログインページへ＞＞</a>
+            <a class="button is-link is-rounded" href="https://quiet-island-17618.herokuapp.com/login">ログインページへ＞＞</a>
         </div>
     </body>
     </html>
