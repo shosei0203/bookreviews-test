@@ -38,7 +38,7 @@ pageEncoding="UTF-8"%> <%@ page import="java.util.*" %>
     </nav>
 
     <section class="section hero is-fullheight">
-      <div class="error">
+      <div class="error login-error">
         <div class="container">
           <% if (request.getAttribute("message") == null) {} else{ %>
           <div class="notification">
@@ -54,14 +54,12 @@ pageEncoding="UTF-8"%> <%@ page import="java.util.*" %>
       </div>
       <div class="login-body-button">
         <div class="container">
-          <div class="field">
-            <a
-              class="button is-link width-100"
-              href="https://quiet-island-17618.herokuapp.com/index.jsp"
-            >
-              戻る
-            </a>
-          </div>
+          <a
+            class="button is-link width-100"
+            href="https://quiet-island-17618.herokuapp.com/index.jsp"
+          >
+            戻る
+          </a>
         </div>
       </div>
     </section>
