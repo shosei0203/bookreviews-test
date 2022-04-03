@@ -41,6 +41,6 @@
               <div class="box">
                   <p>ログアウトしました</p>
               </div>
-        <p><a class="button is-link width-100" href="https://quiet-island-17618.herokuapp.com/index.jsp">ログイン画面へ</a></p>
+        <p><a class="button is-link width-100" href="login">ログイン画面へ</a></p>
     </body>
 </html>
