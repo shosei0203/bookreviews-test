@@ -4,7 +4,9 @@
  <% 
 
   int showPostId = ((Integer)(request.getAttribute("postId"))).intValue();
- 
+  ArrayList<String> errorMessage = (ArrayList<String>)request.getAttribute("errorMessage");
+  int intStars = ((Integer)(request.getAttribute("stars"))).intValue();
+  String image = (String)request.getAttribute("image");
  %>
 <!DOCTYPE html>
 <html>
@@ -47,18 +49,29 @@
                     </div>
                 </div>
             </nav>
+            <div class="error">
+                <div class="container">   
+                  <%  if (errorMessage.size()==0) {} else{ %>
+                    <div class="notification">
+                      <div class="subtitle is-3 has-text-danger">
+                        <span class="icon is-small is-left">
+                          <i class="fa-solid fa-circle-exclamation"></i>
+                        </span>
+                        <% for (String errorMsg : errorMessage) { %>
+                        <%= errorMsg %>
+                        <% } %>
+                      </div>
+                    </div>
+                    <% } %>
+                  </div>
+                </div>
             <div class="post-body">
                 <div class="container">
                     <div class="post-field">
                         <div class="form-field">
-                            <br>
-                            <% String message = (String)request.getAttribute("message");%>
-                            <p><%= message %></p>
-                            <% ArrayList<String> errorMessage = (ArrayList<String>)request.getAttribute("errorMessage");%>
-                            <% for (String errorMsg : errorMessage) { %>
-                            <p><%= errorMsg %></p>
-                            <% } %>
-                            <form action='update' method='post'>
+
+                            <form action='update' method='post' enctype="multipart/form-data">
+
                                 <table>
                                     <input type='hidden' name='postId' value='<%= request.getAttribute("postId") %>'>
                                     <input type='hidden' name='loginId' value='<%= request.getAttribute("personId") %>'>
@@ -84,10 +97,56 @@
                                     </tr>
                                     <tr>
                                         <th>
-                                            <label for='stars'>★</label> <br></label>
+                                            <label for='stars'>評価</label> <br>
                                         </th>
                                         <td>
-                                            <input class="input is-medium"   type='number' name='stars' value='<%= request.getAttribute("stars") %>'>
+                                            <div class="rate-form">
+                                                <input id="star5" type="radio" name="stars" value="5">
+                                                <label for="star5">★</label>
+                                                <input id="star4" type="radio" name="stars" value="4">
+                                                <label for="star4">★</label>
+                                                <input id="star3" type="radio" name="stars" value="3">
+                                                <label for="star3">★</label>
+                                                <input id="star2" type="radio" name="stars" value="2">
+                                                <label for="star2">★</label>
+                                                <input id="star1" type="radio" name="stars" value="1">
+                                                <label for="star1">★</label>
+                                                <input type="radio" name="stars" value="0">
+                                              </div>
+                                        </td>
+                                    </tr>
+                                    <tr>                                            <br>
+                                        <th>
+                                            <label for='image'></label>
+                                        </th>
+                                        <td>
+                                            <br>
+                                            <div id="file-js-example" class="file has-name">
+                                                <label id="file-label">
+                                                  <input class="file-input" type="file" name="image" >
+                                                  <span class="file-cta">
+                                                    <span class="file-icon">
+                                                      <i class="fas fa-upload"></i>
+                                                    </span>
+                                                    <span class="file-label">
+                                                      Choose a file…
+                                                    </span>
+                                                  </span>
+                                                  <span class="file-name">
+                                                    <%= image %>
+                                                  </span>
+                                                </label>
+                                              </div>
+                                             
+                                              <script>
+                                                const fileInput = document.querySelector('#file-js-example input[type=file]');
+                                                fileInput.onchange = () => {
+                                                  if (fileInput.files.length > 0) {
+                                                    const fileName = document.querySelector('#file-js-example .file-name');
+                                                    fileName.textContent = fileInput.files[0].name;
+                                                  }
+                                                }
+                                              </script>
                                             <br>
                                         </td>
                                     </tr>

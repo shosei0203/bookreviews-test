@@ -4,6 +4,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.nio.file.Paths;
+import java.io.File;
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.http.Part;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,8 +20,10 @@ import model.CheckPostLogic;
 import model.NewLogic;
 
 @WebServlet("/create")
+@MultipartConfig(location="/upload", maxFileSize=5000000, maxRequestSize=5000000, fileSizeThreshold=5000000)
 public class CreateServlet extends HttpServlet {
 
+    private String image;
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         this.doPost(request, response);
     }
@@ -41,15 +47,30 @@ public class CreateServlet extends HttpServlet {
             String title = (String) request.getParameter("title");
             String content = (String) request.getParameter("content");
             String strStars = (String) request.getParameter("stars");
-            String image = (String) request.getParameter("image");
 
+            //画像処理
+            Part filePart = request.getPart("image");
+            String path = getServletContext().getRealPath("./upload");
+
+            if(filePart.getSize()==0){
+                image = "NoImage.png";
+            } else {
+            //ファイル名を取得
+            String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // MSIE fix.
+            image = fileName;
+            }
+            
             // 入力値ﾁｪｯｸを行う。
             List<String> errorMsgResult = new ArrayList<String>();
             CheckPostLogic inPostChecker = new CheckPostLogic();
             inPostChecker.titleChecker(title);
             inPostChecker.starsChecker(strStars);
-            errorMsgResult = inPostChecker.errorMsg();
+            inPostChecker.imageChecker(image, filePart);
+            
+            //画像の保存
+            filePart.write(path+File.separator+image);
 
+            errorMsgResult = inPostChecker.errorMsg();              
             // エラーメッセージがNullの時、正常とする。
             if (errorMsgResult.size() == 0) {
 

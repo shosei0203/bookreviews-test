@@ -203,7 +203,7 @@ public class ReviewsDAO {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            sql = "UPDATE reviews SET title = ?, content = ? ,stars = ? WHERE postId = ? and personId = ?";
+            sql = "UPDATE reviews SET title = ?, content = ? ,stars = ? ,image = ? WHERE postId = ? and personId = ?";
 
             // 接続情報を取得してDBに接続する
             connection = DriverManager.getConnection(url, dbUser, password);
@@ -215,9 +215,10 @@ public class ReviewsDAO {
             statement.setString(1, title);
             statement.setString(2, content);
             statement.setInt(3, stars);
-            statement.setInt(4, postId);
-            statement.setString(5, loginId);
-
+            statement.setString(4, image);
+            statement.setInt(5, postId);
+            statement.setString(6, loginId);
+           
             // IDを詰めた後のSQLをDBに対して実行する。
             statement.executeUpdate();
         } catch (SQLException e) {

@@ -22,6 +22,7 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
   </head>
   <body>
+    <div id="wrapper">
     <nav
     class="navbar is-fixed-top"
     role="navigation"
@@ -37,7 +38,7 @@
     </div>
   </nav>
 
-    <section class="section hero is-fullheight">
+    <section>
       <div class="error">
         <div class="container">   
           <%  if (request.getAttribute("message") == null) {} else{ %>
@@ -55,7 +56,7 @@
       <div id="warpper">
         <div class="login-body">
               <div class="container">     
-                <h1>新規ユーザー登録</h1>
+                <h2>新規ユーザー登録</h2>
                 <form action="userCreate" method="post">
                   <div class="field">
                     <label for="loginId" class="text-margin">Login ID</label>
@@ -113,12 +114,13 @@
                     value="新規登録"
                     class="button is-link width-100"
                   />
-                  <a class="button is-link width-100" href='https://quiet-island-17618.herokuapp.com/index.jsp'>戻る</a>
+                  <a class="button is-link width-100" href="login">戻る</a>
                 </form>
                 </div>
               </div>
           </div>
         </div>
       </section>
+    </div>
   </body>
 </html>

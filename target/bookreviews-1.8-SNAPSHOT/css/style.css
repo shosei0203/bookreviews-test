@@ -33,20 +33,16 @@ body {
   height: 100%;
   min-height: 100%;
   background-color: blue;
-  background: linear-gradient(#5efce2, #6e9cfe);
-  background: -moz-linear-gradient(#5eeafc, #736efe);
-  background: -webkit-linear-gradient(#5ef1fc, #6ea0fe);
+  background: linear-gradient(180deg, #28b3f4 3%, #5ef1fc, #54e0e2);
+  background: -moz-linear-gradient(180deg, #28b3f4 3%, #5eeafc, #54e0e2);
+  background: -webkit-linear-gradient(180deg, #28b3f4 3%, #5ef1fc, #54e0e2);
 }
 
 .error {
   align-items: center;
   display: flex;
   flex-shrink: 0;
-  padding: 100px 15px 0px;
-}
-
-.login-error {
-  padding-top: 200px;
+  padding: 80px 15px 0px;
 }
 
 h1 {
@@ -54,16 +50,30 @@ h1 {
   margin-left: 200px;
 }
 
+h2 {
+  margin-bottom: 30px;
+  margin-left: 200px;
+}
 /*login.jsp newuser.jsp*/
 .login-body {
   align-items: center;
   display: flex;
   flex-shrink: 0;
-  padding: 100px 15px 0px;
+  padding: 50px 15px 0px;
 }
 
 #warpper {
-  padding: 0px 15px 0px;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+
+section {
+  padding-top: 50px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .field {
@@ -78,7 +88,8 @@ h1 {
 }
 
 .button.width-100 {
-  width: 30%;
+  width: 120px;
+  height: 30px;
   padding: 0px;
   margin-top: 10px;
 }
@@ -91,7 +102,7 @@ h1 {
 }
 
 .login-body-button {
-  margin-top: 50px;
+  margin-top: 40px;
   margin-bottom: 200px;
 }
 
@@ -117,62 +128,18 @@ h1 {
   padding: 0px 30px 0px;
 }
 
-/*lis.jsp*/
-
-#booklist-wrappwer {
-  align-items: center;
-  display: flex;
-  flex-shrink: 0;
-  margin: 80px 0px 0px;
-  padding-bottom: auto;
-  background-color: #eeb160d7;
-  border-color: #f39c2bd7;
-  border-style: solid;
-  border-width: 5px;
-  flex-wrap: wrap;
-}
-
-.card {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-}
-
-#footerwrap {
-  min-height: 100vh;
-  position: relative; /*←相対位置*/
-  padding-bottom: 120px; /*←footerの高さ*/
-  box-sizing: border-box; /*←全て含めてmin-height:100vhに*/
-}
-
-footer {
-  width: 100%;
-  background-color: #89c7de;
-  color: #fff;
-  text-align: center;
-  padding: 30px 0;
-
-  position: absolute; /*←絶対位置*/
-  bottom: 0; /*下に固定*/
-}
-
-.size {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 40px;
-  padding-right: 40px;
-}
 
 /*edit.jsp new.jsp post.jsp*/
 .post-body {
   align-items: center;
   display: flex;
   flex-shrink: 0;
-  padding: 160px 15px 0px;
+  padding: 40px 15px 0px;
 }
 
 .post-field {
   height: 100%;
+  min-width: 300px;
   margin: 0 20%;
   padding: 0 5%;
   border: solid;
@@ -186,30 +153,193 @@ footer {
   width: 90%;
   margin: 0 5%;
   padding: 0 5%;
+  box-sizing: border-box;
 }
 
-.button-post{
+.file-cta {
+  min-width: 170px;
+  height: 30px;
+}
+
+#file-label {
+  max-width: 170px;
+}
+
+.file-name {
+  border: none;
+  height: 25px;
+}
+
+.rate-form {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+.rate-form input[type="radio"] {
+  display: none;
+}
+.rate-form label {
+  position: relative;
+  z-index: 0;
+  display: inline-block;
+  white-space: nowrap;
+  color: #fcfcfc;
+  font-size: 20px;
+}
+.rate-form label:hover {
+  color: #ffcc00;
+}
+.rate-form label:hover ~ label {
+  color: #ffcc00;
+}
+.rate-form input[type="radio"]:checked ~ label {
+  color: #ffcc00;
+}
+
+.button-post {
   position: relative;
 }
-.button-cancel{
+.button-cancel {
   position: absolute;
   right: 8%;
   bottom: 0px;
 }
 
-.button-delete{
+.button-delete {
   position: absolute;
   left: 8%;
   bottom: 0px;
 }
 
+/*lis.jsp*/
+
+#booklist-wrappwer {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  margin: 80px 0px 0px;
+  padding-bottom: auto;
+  background-color: #ffcc00;
+  border-color: #ffcc00;
+  border-style: solid;
+  border-width: 5px;
+  flex-wrap: wrap;
+}
+
+.card-box {
+  padding-top: 15px;
+  padding-bottom: 60px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+  gap: 16px;
+}
+
+.card {
+  height: 0;
+  max-width: 300px;
+  padding-bottom: clamp(200px, 100%, 300px);
+  position: relative;
+}
+
+.card-content {
+  float: left;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 100%;
+}
+
+.star5_rating {
+  position: relative;
+  z-index: 0;
+  display: inline-block;
+  white-space: nowrap;
+  color: #fcfcfc;
+  font-size: 20px;
+}
+
+.star5_rating:before,
+.star5_rating:after {
+  content: "★★★★★";
+}
+
+.star5_rating:after {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #ffcc00; /* イエローカラー 自由に設定化 */
+}
+
+.star5_rating[data-rate="5"]:after {
+  width: 100%;
+} /* 星5 */
+.star5_rating[data-rate="4"]:after {
+  width: 80%;
+} /* 星4 */
+.star5_rating[data-rate="3"]:after {
+  width: 60%;
+} /* 星3 */
+.star5_rating[data-rate="2"]:after {
+  width: 40%;
+} /* 星2 */
+.star5_rating[data-rate="1"]:after {
+  width: 20%;
+} /* 星1 */
+.star5_rating[data-rate="0"]:after {
+  width: 0%;
+}
 
 /*
-  margin-top: 30px;
-  margin-left: 100px;
-  margin-right: 100px;
-  padding-left: auto;
-  padding-right: auto;
-  border: solid;
-  border-color: #5d627b;
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.card-float {
+  margin: 5px;
+  padding: 5px;
+  float: left;
+}
+.card-float {
+  float: left;
+}
+*/ /*
+#footerwrap {
+  min-height: 100vh;
+  position: relative; /*←相対位置*/
+/* padding-bottom: 120px; /*←footerの高さ*/
+/* box-sizing: border-box; /*←全て含めてmin-height:100vhに*/
+/*}
+*/
+
+footer {
+  width: 100%;
+  background-color: #89c7de;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 5px;
+
+  position: absolute; /*←絶対位置*/
+  position: fixed;
+  bottom: 0; /*下に固定*/
+}
+
+.size {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+img {
+  max-width: 50%;
+  margin: 10px;
+}
+
+th {
+  min-width: 70px;
 }

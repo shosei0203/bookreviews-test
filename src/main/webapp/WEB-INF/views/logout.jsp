@@ -41,6 +41,6 @@
               <div class="box">
                   <p>ログアウトしました</p>
               </div>
-        <p><a class="button is-link width-100" href="login">ログイン画面へ</a></p>
+        <p><a class="button is-link login-move" href="login">ログイン画面へ</a></p>
     </body>
 </html>

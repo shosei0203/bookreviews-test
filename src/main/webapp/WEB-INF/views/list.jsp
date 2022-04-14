@@ -29,7 +29,7 @@
         <link rel="stylesheet" type="text/css" href="/css/style.css" />
 
     <body>
-        <div id="footerwrap">
+        <div id="wrapper">
         <nav
          class="navbar is-fixed-top"
          role="navigation"
@@ -52,49 +52,51 @@
             </div>
         </div>
     </nav>
+    <section>
     <div class="container">
-        <table id="booklist-wrappwer">
-            <div class="test">
-            <tr>
-                <th>No.</th>
-                <th>画像</th>
-                <th>タイトル</th>
-                <th>評価</th>
-            </tr>
-        <% 
+      <div class="card-box">
+  <!--      <table id="booklist-wrappwer" class="list-box" cellspacing="15">-->
+    <%  if(reviews.size() == 0){ %>
+      <p>投稿はまだありません</p> 
+      <% }else{
             for (ReviewsDTO review : reviews) {
+                int showPostId = review.getPostId();
+                String strShowPostId = String.valueOf(showPostId);
         %>
-                <tr>
-                    <td>
-                        <script type="text/javascript"> 
-                        document.write(hoge.rows.length-1);
-                        </script>
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-                        <% int showPostId = review.getPostId(); %>
-                        <% String strShowPostId = String.valueOf(showPostId); %>
-                        <form name="<%='a'+strShowPostId%>" method="post" action="show">
-                        <input type="hidden" name="postId" value="<%= showPostId %>">
-                        </form>
-                        <a href="#" onclick="document.<%='a'+strShowPostId %>.submit();return false;"><%= review.getTitle() %></a>
-                    </td>
-                    <td><%= review.getStars() %></td>
-                </tr>
-            <% } %>
-
-        </table>
+                        <div class="card">
+                            <div class="card-image">
+                              <figure class="image">
+                                <img src="./upload/<%= review.getImage() %>" alt="Placeholder image">
+                              </figure>
+                            </div>
+                            <div class="card-content">
+                              <div class="media">
+                                <div class="media-content">
+                                  <p class="title is-5">
+                                    <form name="<%='a'+strShowPostId%>" method="post" action="show">
+                                    <input type="hidden" name="postId" value="<%= showPostId %>">
+                                    </form>
+                                     <a href="#" 
+                                      onclick="document.<%='a'+strShowPostId %>.submit();return false;">
+                                      <%= review.getTitle() %></a>
+                                  </p>
+                                </div>
+                              </div>
+                              <div class="content">
+                                <span class="star5_rating" data-rate=<%= review.getStars() %>></span>
+                              </div>
+                            </div>
+                          </div>
+            <% } }%>
     </div>
         </div>
-
-        <p></p>
+      </div>
+    </section>
         <footer>
             <form name="newpost" method="post" action="new">
             <input type="hidden" name="<%= loginId %>" value=>
             </form>
-            <p><a class="button is-link size" href="#" onclick="document.newpost.submit();return false;">新規レビュー追加 ＞＞</a></p>
+            <a class="button is-link size" href="#" onclick="document.newpost.submit();return false;">新規レビュー追加 ＞＞</a>
         </footer>
     </body>
 </html>

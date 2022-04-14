@@ -2,7 +2,12 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
 <%@ page import="model.*" %>
- <%  int showPostId = ((Integer)(request.getAttribute("postId"))).intValue(); %>
+ <% 
+
+  int showPostId = ((Integer)(request.getAttribute("postId"))).intValue();
+  String image = (String)request.getAttribute("image");
+ 
+ %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -45,6 +50,8 @@
                 </div>
             </div>
         </nav>
+        <div class="error">
+        </div>
         <div class="post-body">
             <div class="container">
                 <div class="post-field">
@@ -75,10 +82,24 @@
                             </tr>
                             <tr>
                                 <th>
-                                    <p>★</p> <br>
+                                    <br>
+                                    <p>評価</p> <br>
                                 </th>
                                 <td>
-                                    <%= request.getAttribute("stars") %>
+                                    <br>
+                                    <span class="star5_rating" data-rate= <%= request.getAttribute("stars") %>></span>
+                                    <br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <br>
+                                    <p></p>
+                                    <br>
+                                </th>
+                                <td>
+                                    <br>
+                                    <img src="./upload/<%= image %>">                                     <br>
                                     <br>
                                 </td>
                             </tr>
