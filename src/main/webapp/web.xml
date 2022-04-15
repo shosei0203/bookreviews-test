@@ -123,6 +123,16 @@
 		<url-pattern>/ReviewsDTO</url-pattern>
 	</servlet-mapping>
 	
+    <servlet>
+        <servlet-name>CreateServlet</servlet-name>
+        <servlet-class>servlet.CreateServlet</servlet-class>
+        <multipart-config>
+        <location>"/tmp/files"</location>
+         <max-file-size>10000</max-file-size>
+         <max-request-size>10000</max-request-size>
+         <file-size-threshold>10000</file-size-threshold>
+        </multipart-config>
+    </servlet>
 </web-app>
 
 
