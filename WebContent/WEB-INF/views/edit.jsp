@@ -3,6 +3,7 @@
 <%@ page import="java.util.*" %>
 <% 
   int showPostId = ((Integer)(request.getAttribute("postId"))).intValue();
+  String postId = (String)request.getAttribute("postId");
   ArrayList<String> errorMessage = (ArrayList<String>)request.getAttribute("errorMessage");
   int intStars = ((Integer)(request.getAttribute("stars"))).intValue();
   String image = (String)request.getAttribute("image");
@@ -160,7 +161,7 @@
                         <button class="button is-link size button-post" type='submit'>編集を保存する</button>
                     </form>
                     <form name="showback" method="post" action="show">
-                        <input type="hidden" name="postId" value="<%= showPostId %>">
+                        <input type="hidden" name="postId" value="<%= postId %>">
                     </form>
                     <a class="button is-white size button-cancel" href="#" onclick="document.showback.submit();return false;">戻る</a>
                 </div>
