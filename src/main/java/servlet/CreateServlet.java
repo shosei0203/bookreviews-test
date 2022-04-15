@@ -43,8 +43,9 @@ public class CreateServlet extends HttpServlet {
         } else {
 
             // セッション・画面の情報を変数に格納していく
-            int postId = Integer.valueOf(request.getParameter("postId")).intValue();
             request.setAttribute("loginId", loginId);
+            String postIdStr = (String) request.getParameter("postId");
+            int postId = Integer.valueOf(postIdStr).intValue();
             String title = (String) request.getParameter("title");
             String content = (String) request.getParameter("content");
             String strStars = (String) request.getParameter("stars");
