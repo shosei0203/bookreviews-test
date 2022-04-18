@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
 <% ArrayList<String> errorMessage = (ArrayList<String>)request.getAttribute("errorMessage");
-    String postId = (String)request.getAttribute("postId");
+    int postId = (Integer)request.getAttribute("postId");
     String loginId = (String)request.getAttribute("personId");
 %>
 <!DOCTYPE html>
