@@ -43,8 +43,9 @@ public class UpdateServlet extends HttpServlet {
 
             // セッション・画面の情報を変数に格納していく
             request.setAttribute("loginId", loginId);
-            int postId = Integer.parseInt(request.getParameter("postId"));
-
+            String postIdStr = (String) request.getParameter("postId");
+			int postId = Integer.parseInt(postIdStr);
+            
             String title = request.getParameter("title");
             String content = request.getParameter("content");
             String strStars = request.getParameter("stars");
