@@ -20,7 +20,7 @@ import model.CheckPostLogic;
 import model.UpdateLogic;
 
 @WebServlet("/update")
-@MultipartConfig(location="./update", maxFileSize=5000000, maxRequestSize=5000000, fileSizeThreshold=5000000)
+@MultipartConfig(location="update", maxFileSize=5000000, maxRequestSize=5000000, fileSizeThreshold=5000000)
 public class UpdateServlet extends HttpServlet {
 
     private String image;
