@@ -16,15 +16,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.servlet.*;
-import java.util.*;
-import java.io.*;
+
 
 import model.CheckPostLogic;
 import model.NewLogic;
 
 @WebServlet("/create")
-@MultipartConfig(location="/tmp/files", maxFileSize=5000000, maxRequestSize=5000000, fileSizeThreshold=5000000)
+@MultipartConfig(location="/update", maxFileSize=5000000, maxRequestSize=5000000, fileSizeThreshold=5000000)
 public class CreateServlet extends HttpServlet {
 
     private String image;
