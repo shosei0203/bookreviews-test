@@ -69,10 +69,10 @@
                     <div class="post-field">
                         <div class="form-field">
 
-                            <form action='update' method='post' enctype="multipart/form-data">
+                            <form action='update?postId=<%= request.getAttribute("postId") %>' method='post' enctype="multipart/form-data">
 
                                 <table>
-                                    <input type='hidden' name='postId' value='<%= request.getAttribute("postId") %>'>
+                                    <!--<input type='hidden' name='postId' value='<%= request.getAttribute("postId") %>'>-->
                                     <input type='hidden' name='loginId' value='<%= request.getAttribute("personId") %>'>
                                     <tr>
                                         <th>
