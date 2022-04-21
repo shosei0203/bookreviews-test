@@ -22,7 +22,7 @@ import model.CheckPostLogic;
 import model.NewLogic;
 
 @WebServlet("/create")
-@MultipartConfig(location="./upload/", maxFileSize=5000000, maxRequestSize=5000000, fileSizeThreshold=5000000)
+@MultipartConfig(location="/WEB-INF/uploads", maxFileSize=5000000, maxRequestSize=5000000, fileSizeThreshold=5000000)
 public class CreateServlet extends HttpServlet {
 
     private String image;
