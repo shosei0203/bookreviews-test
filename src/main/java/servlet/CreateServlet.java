@@ -22,7 +22,7 @@ import model.CheckPostLogic;
 import model.NewLogic;
 
 @WebServlet("/create")
-@MultipartConfig(location="/tmp/files", maxFileSize=5000000, maxRequestSize=5000000, fileSizeThreshold=5000000)
+@MultipartConfig(maxFileSize=5000000, maxRequestSize=5000000, fileSizeThreshold=5000000)
 public class CreateServlet extends HttpServlet {
 
     private String image;
@@ -73,6 +73,7 @@ public class CreateServlet extends HttpServlet {
             
             //画像の保存
             filePart.write(path+File.separator+image);
+            System.out.println(image);
 
             errorMsgResult = inPostChecker.errorMsg();              
             // エラーメッセージがNullの時、正常とする。
