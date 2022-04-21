@@ -73,8 +73,7 @@ public class CreateServlet extends HttpServlet {
             
             //画像の保存
             filePart.write(path+File.separator+image);
-            System.out.println(image);
-
+            
             errorMsgResult = inPostChecker.errorMsg();              
             // エラーメッセージがNullの時、正常とする。
             if (errorMsgResult.size() == 0) {
