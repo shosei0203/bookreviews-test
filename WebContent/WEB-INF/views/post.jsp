@@ -99,7 +99,7 @@
                                 </th>
                                 <td>
                                     <br>
-                                    <img src="./fileupload/upload/<%= image %>">                                     <br>
+                                    <img src="./expanded/upload/<%= image %>">                                     <br>
                                     <br>
                                 </td>
                             </tr>
