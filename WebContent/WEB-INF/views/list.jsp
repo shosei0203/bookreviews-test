@@ -66,7 +66,7 @@
                         <div class="card">
                             <div class="card-image">
                               <figure class="image">
-                                <img src="./WEB-INF/uploads/<%= review.getImage() %>" alt="Placeholder image">
+                                <img src="./fileupload/upload/<%= review.getImage() %>" alt="Placeholder image">
                               </figure>
                             </div>
                             <div class="card-content">

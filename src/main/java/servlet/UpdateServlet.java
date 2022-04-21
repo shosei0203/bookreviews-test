@@ -3,7 +3,7 @@ package servlet;
 import java.io.IOException;
 import java.io.File;
 import java.nio.file.Paths;
-import java.util.ArrayList;
+import java.util.ArrayList; 
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -20,7 +20,7 @@ import model.CheckPostLogic;
 import model.UpdateLogic;
 
 @WebServlet("/update")
-@MultipartConfig(location="/uploads", maxFileSize=5000000, maxRequestSize=5000000, fileSizeThreshold=5000000)
+@MultipartConfig(location="/tmp/files", maxFileSize=5000000, maxRequestSize=5000000, fileSizeThreshold=5000000)
 public class UpdateServlet extends HttpServlet {
 
     private String image;
