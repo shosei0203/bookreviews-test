@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
+import org.springframework.web.multipart.MultipartFile;
 
 import model.CheckPostLogic;
 import model.UpdateLogic;
@@ -70,6 +71,7 @@ public class UpdateServlet extends HttpServlet {
             inPostChecker.imageChecker(image, filePart);
 
             //画像の保存
+            MultipartFile uploadFile; 
             filePart.write(path+"/"+image);
             errorMsgResult = inPostChecker.errorMsg();
 
