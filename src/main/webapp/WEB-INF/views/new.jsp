@@ -5,6 +5,7 @@
     int postId = (Integer)request.getAttribute("postId");
     String loginId = (String)request.getAttribute("personId");
 %>
+
 <!DOCTYPE html>
 <html>
     <head>
