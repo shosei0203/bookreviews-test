@@ -273,4 +273,49 @@ public class ReviewsDAO {
         return;
     }
 
+    
+    public ReviewsDTO findImage(int postId, String loginId, String image) {
+
+        Connection connection = null;
+        ReviewsDTO review = new ReviewsDTO();
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            sql = "SELECT image FROM reviews WHERE postId = ? and personId = ?";
+
+            // 接続情報を取得してDBに接続する
+            connection = DriverManager.getConnection(url, dbUser, password);
+
+            // 接続できたらSQL変数に入っているSQL文をstatement変数に代入する
+            PreparedStatement statement = connection.prepareStatement(sql);
+
+            // SQL文の？の1つ目の値にユーザー登録画面に入力したIDを詰める
+            statement.setInt(1, postId);
+            statement.setString(2, loginId);
+
+            // IDを詰めた後のSQLをDBに対して実行する。
+            statement.executeQuery();
+            // IDを詰めた後のSQLをDBに対して実行する。
+            ResultSet result = statement.executeQuery();
+            if (result.next()) {
+                String setImage = result.getString("image");
+                review = new ReviewsDTO(setImage);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return review;
+    }
+
+
 }

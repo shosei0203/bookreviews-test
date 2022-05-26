@@ -1,28 +1,28 @@
 {
-    // IntelliSense を使用して利用可能な属性を学べます。
-    // 既存の属性の説明をホバーして表示します。
-    // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "type": "java",
-            "name": "Launch main",
-            "request": "launch",
-            "mainClass": "model.main",
-            "projectName": "bookreviews_931791a2"
-        },
-        {
-            "type": "java",
-            "request": "attach",
-            "name": "Java",
-            "port": 5005,
-            "sourceRoots": []
-        },
-        {
-            "type": "java",
-            "name": "Launch Current File",
-            "request": "launch",
-            "mainClass": "${file}"
-        }
-    ]
+  // IntelliSense を使用して利用可能な属性を学べます。
+  // 既存の属性の説明をホバーして表示します。
+  // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Launch main",
+      "request": "launch",
+      "mainClass": "model.main",
+      "projectName": "bookreviews_931791a2"
+    },
+    {
+      "type": "java",
+      "request": "attach",
+      "name": "Java",
+      "port": 5005,
+      "sourceRoots": []
+    },
+    {
+      "type": "java",
+      "name": "Launch Current File",
+      "request": "launch",
+      "mainClass": "${file}"
+    }
+  ]
 }

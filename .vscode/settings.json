@@ -1,9 +1,11 @@
 {
-    "java.project.referencedLibraries": [
-        "lib/**/*.jar",
-        "c:\\Program Files\\Apache Software Foundation\\Tomcat 10.0\\lib\\servlet-api.jar",
-        "c:\\Program Files\\Apache Software Foundation\\Tomcat 9.0\\lib\\servlet-api.jar"
-    ],
-    "maven.view": "flat",
-    "java.dependency.packagePresentation": "hierarchical"
+  "java.project.referencedLibraries": [
+    "lib/**/*.jar",
+    "c:\\Program Files\\Apache Software Foundation\\Tomcat 10.0\\lib\\servlet-api.jar",
+    "c:\\Program Files\\Apache Software Foundation\\Tomcat 9.0\\lib\\servlet-api.jar",
+    "c:\\Program Files\\Apache Software Foundation\\Tomcat 9.0\\lib\\commons-fileupload-1.4.jar",
+    "library/**/*.jar"
+  ],
+  "maven.view": "flat",
+  "java.dependency.packagePresentation": "hierarchical"
 }

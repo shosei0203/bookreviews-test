@@ -71,8 +71,8 @@
                     <br>
                     <p>LoginID：　<%= loginId %></p>
                     <p><%= postId  %>投稿目</p>
-                    <form action='create?postId=<%= postId %>' method='post' enctype="multipart/form-data">
-                      <!--<input type='hidden' name='postId' value= <%= postId %>>-->
+                    <form action='create' method='post' enctype="multipart/form-data">
+                      <input type='hidden' name='postId' value= <%= postId %>>
                       <input type='hidden' name='loginId' value= <%= loginId %>>
                         <table>
 

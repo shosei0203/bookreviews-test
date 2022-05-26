@@ -6,12 +6,16 @@
 
   int showPostId = ((Integer)(request.getAttribute("postId"))).intValue();
   String image = (String)request.getAttribute("image");
+  String tmp1 =  (String)request.getAttribute("title");
+  String title = new String(tmp1.getBytes("ISO-8859-1"),"UTF-8");
+  String tmp2 =  (String)request.getAttribute("title");
+  String content = new String(tmp2.getBytes("ISO-8859-1"),"UTF-8");
  
  %>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>BookReviewAPP</title>
         <link
           rel="stylesheet"
@@ -66,7 +70,7 @@
                                 </th>
                                 <td>
                                     <br>
-                                    <%= request.getAttribute("title") %>
+                                    <%= title %>
                                     <br>
                                 </td>
                             </tr>
@@ -76,7 +80,7 @@
                                 </th>
                                 <td>
                                     <br>
-                                    <%= request.getAttribute("content") %>
+                                    <%= content %>
                                     <br>
                                 </td>
                             </tr>
@@ -99,7 +103,7 @@
                                 </th>
                                 <td>
                                     <br>
-                                    <img src="./expanded/upload/<%= image %>">                                     <br>
+                                    <img src="./upload/<%= image %>?20220521"/>                                     <br>
                                     <br>
                                 </td>
                             </tr>
@@ -113,6 +117,7 @@
             <div class="container">
             <form name="postDelete" method="post" action="delete">
             <input type="hidden" name="postId" value="<%= showPostId %>">
+            <input type="hidden" name="image" value="<%= image %>">
             </form>
             <p><a class="button is-danger size button-delete" href="#" onclick="document.postDelete.submit();return false;">削除する</a></p>
 

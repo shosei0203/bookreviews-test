@@ -21,6 +21,9 @@ public class ReviewsDTO {
         this.postId = postId;
     }
 
+    public ReviewsDTO(String image) {
+        this.image = image;
+    }
     public int getPostId() {
         return postId;
     }

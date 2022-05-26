@@ -1,7 +1,7 @@
 package model;
 
 import java.util.*;
-import javax.servlet.http.Part;
+import org.apache.commons.fileupload.*;
 
 public class CheckPostLogic {
     List<String> errorMessage = new ArrayList<>();
@@ -33,7 +33,7 @@ public class CheckPostLogic {
         }
     }
 
-    public void imageChecker(String image, Part filePart) {
+    public void imageChecker(String image, FileItem item) {
 			if (image.endsWith(".JPG")
                 || image.endsWith(".jpg")
 				|| image.endsWith(".JEPG")
@@ -50,7 +50,7 @@ public class CheckPostLogic {
                 String message = "画像を取り込んでください";
                 errorMessage.add(message);
             }
-                if(filePart.getSize()>5000000){
+                if(item.getSize()>5000000){
                     String message = "5MB以下の画像を取り込んでください";
                     errorMessage.add(message);
                 }

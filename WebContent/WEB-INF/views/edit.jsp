@@ -6,11 +6,15 @@
   ArrayList<String> errorMessage = (ArrayList<String>)request.getAttribute("errorMessage");
   int intStars = ((Integer)(request.getAttribute("stars"))).intValue();
   String image = (String)request.getAttribute("image");
+  String tmp1 =  (String)request.getAttribute("title");
+  String title = new String(tmp1.getBytes("ISO-8859-1"),"UTF-8");
+  String tmp2 =  (String)request.getAttribute("title");
+  String content = new String(tmp2.getBytes("ISO-8859-1"),"UTF-8");
  %>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>BookReviewAPP</title>
         <link
           rel="stylesheet"
@@ -69,18 +73,17 @@
                     <div class="post-field">
                         <div class="form-field">
 
-                            <form action='update?postId=<%= request.getAttribute("postId") %>' method='post' enctype="multipart/form-data">
-
+                            <form action='update' method='post' enctype="multipart/form-data">
                                 <table>
-                                    <!--<input type='hidden' name='postId' value='<%= request.getAttribute("postId") %>'>-->
-                                    <input type='hidden' name='loginId' value='<%= request.getAttribute("personId") %>'>
+                                    <input type='hidden' name='postId' value='<%= request.getAttribute("postId") %>'>
+                                    <input type='hidden' name='loginId' value='<%= request.getAttribute("loginId") %>'>
                                     <tr>
                                         <th>
                                             <br><label for='title'>タイトル　<br></label>
                                         </th>
                                         <td>
                                             <br>
-                                            <input class="input is-medium" type='text' name='title' value='<%= request.getAttribute("title") %>'>
+                                            <input class="input is-medium" type='text' name='title' value='<%= title %>'>
                                             <br>
                                         </td>
                                     </tr>
@@ -90,7 +93,7 @@
                                         </th>
                                         <td>
                                             <br>
-                                            <textarea class="textarea is-medium" name='content' cols='40' rows='10'><%= request.getAttribute("content") %></textarea>
+                                            <textarea class="textarea is-medium" name='content' cols='40' rows='10'><%= content %></textarea>
                                             <br>
                                         </td>
                                     </tr>

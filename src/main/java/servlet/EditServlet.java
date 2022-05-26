@@ -37,8 +37,21 @@ public class EditServlet extends HttpServlet {
 
             // セッション・画面の情報を変数に格納していく
             request.setAttribute("loginId", loginId);
-            int postId = Integer.parseInt(request.getParameter("postId"));
-
+            int postId;
+            // 次の処理画面に遷移する
+            List<String> errorMessage = (ArrayList<String>) request.getAttribute("errorMessage");
+            if (errorMessage == null) {
+                //listからeditに遷移するﾊﾟﾀｰﾝ
+                List<String> zeroMessage = new ArrayList<String>();
+                request.setAttribute("errorMessage", zeroMessage);
+                postId = Integer.parseInt(request.getParameter("postId"));
+            } else {
+                //updateからeditに遷移するﾊﾟﾀｰﾝ(updateでエラーがある)
+                if (errorMessage.size() != 0) {
+                    request.setAttribute("errorMessage", errorMessage);
+                }
+                postId = ((Integer)(request.getAttribute("postId"))).intValue();
+            }
             // 更新処理を行う対象のデータを取得する
             ShowLogic getPost = new ShowLogic();
             ReviewsDTO result = getPost.execute(loginId, postId);
@@ -60,16 +73,7 @@ public class EditServlet extends HttpServlet {
 
             request.setAttribute("message", "更新対象投稿ID：" + postId);
 
-            // 次の処理画面に遷移する
-            List<String> errorMessage = (ArrayList<String>) request.getAttribute("errorMessage");
-            if (errorMessage == null) {
-                List<String> zeroMessage = new ArrayList<String>();
-                request.setAttribute("errorMessage", zeroMessage);
-            } else {
-                if (errorMessage.size() != 0) {
-                    request.setAttribute("errorMessage", errorMessage);
-                }
-            }
+
             // 更新を行う画面に遷移する。
             String view = "/WEB-INF/views/edit.jsp";
             RequestDispatcher dispatcher = request.getRequestDispatcher(view);

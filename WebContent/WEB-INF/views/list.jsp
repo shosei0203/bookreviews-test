@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>BookReviewAPP</title>
         <link
           rel="stylesheet"
@@ -62,11 +62,12 @@
             for (ReviewsDTO review : reviews) {
                 int showPostId = review.getPostId();
                 String strShowPostId = String.valueOf(showPostId);
+                String title = new String (review.getTitle().getBytes("ISO-8859-1"),"UTF-8");
         %>
                         <div class="card">
                             <div class="card-image">
                               <figure class="image">
-                                <img src="./expanded/upload/<%= review.getImage() %>" alt="Placeholder image">
+                                <img src="./upload/<%= review.getImage() %>?20220521" alt="Placeholder image" />
                               </figure>
                             </div>
                             <div class="card-content">
@@ -77,8 +78,8 @@
                                     <input type="hidden" name="postId" value="<%= showPostId %>">
                                     </form>
                                      <a href="#" 
-                                      onclick="document.<%='a'+strShowPostId %>.submit();return false;">
-                                      <%= review.getTitle() %></a>
+                                     onclick="document.<%='a'+strShowPostId %>.submit();return false;">
+                                      <%= title %></a>
                                   </p>
                                 </div>
                               </div>

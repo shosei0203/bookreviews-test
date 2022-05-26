@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.io.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,6 +35,11 @@ public class DeleteServlet extends HttpServlet {
             // セッション・画面の情報を変数に格納していく
             request.setAttribute("loginId", loginId);
             int postId = Integer.parseInt(request.getParameter("postId"));
+            String image = request.getParameter("image");
+
+            String path = getServletContext().getRealPath("./upload");
+            File path2 = new File(path + "/" + image);
+            if(path2.delete()){
 
             // 削除処理を実行する。
             DeleteLogic deletePost = new DeleteLogic();
@@ -41,7 +47,9 @@ public class DeleteServlet extends HttpServlet {
             request.setAttribute("message", postId + "を削除しました。");
 
             // 処理後、次の画面に遷移する。
-            response.sendRedirect("list");
+            response.sendRedirect("list");                        
+        }
+            response.sendRedirect("list");    
         }
     }
 }

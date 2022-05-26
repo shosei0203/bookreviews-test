@@ -35,8 +35,9 @@ public class ShowServlet extends HttpServlet {
 
             // セッション・画面の情報を変数に格納していく
             request.setAttribute("loginId", loginId);
-            int postId = Integer.parseInt(request.getParameter("postId"));
-
+            String strPostId = (String)request.getParameter("postId");
+            int postId = Integer.parseInt(strPostId);
+            
             // 詳細画面に表示するレビュー情報を取得して、値をセットしていく
             ShowLogic getPost = new ShowLogic();
             ReviewsDTO result = getPost.execute(loginId, postId);
