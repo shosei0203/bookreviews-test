@@ -46,7 +46,7 @@ public class UpdateServlet extends HttpServlet {
             File path = new File("./upload");
             DiskFileItemFactory  dfu = new DiskFileItemFactory();
             ServletFileUpload   sfu   = new ServletFileUpload(dfu); 
-            sfu.setSizeMax(0);
+            sfu.setSizeMax(-1);
             dfu.setSizeThreshold(1024); // バッファサイズ        
             dfu.setRepository(path);// 一時ファイルの保存先フォルダ
             sfu.setHeaderEncoding("UTF-8");
