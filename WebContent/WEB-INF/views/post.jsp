@@ -5,11 +5,12 @@
  <% 
 
   int showPostId = ((Integer)(request.getAttribute("postId"))).intValue();
-  String image = (String)request.getAttribute("image");
   String tmp1 =  (String)request.getAttribute("title");
   String title = new String(tmp1.getBytes("ISO-8859-1"),"UTF-8");
   String tmp2 =  (String)request.getAttribute("content");
   String content = new String(tmp2.getBytes("ISO-8859-1"),"UTF-8");
+  String tmp3 = (String)request.getAttribute("image");
+  String image = new String(tmp3.getBytes("ISO-8859-1"),"UTF-8");
  
  %>
 <!DOCTYPE html>
@@ -103,7 +104,7 @@
                                 </th>
                                 <td>
                                     <br>
-                                    <img src="./upload/<%= image %>?20220521"/>                                     <br>
+                                    <img src="./upload/<%= image %>"/>                                     <br>
                                     <br>
                                 </td>
                             </tr>
