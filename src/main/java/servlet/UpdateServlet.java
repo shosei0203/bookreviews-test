@@ -43,7 +43,8 @@ public class UpdateServlet extends HttpServlet {
             response.sendRedirect("login");
         } else {
 
-            File path = new File("./upload");
+            String pathStr = getServletContext().getRealPath("./upload");
+            File path = new File(pathStr);
             DiskFileItemFactory  dfu = new DiskFileItemFactory();
             ServletFileUpload   sfu   = new ServletFileUpload(dfu); 
             sfu.setSizeMax(-1);
@@ -101,10 +102,10 @@ public class UpdateServlet extends HttpServlet {
                         if(paraName1.equals("loginId")){
                             
                             String paraName2 = item.getFieldName();
-                            String paraValue2 = item.getString();
+                            //String paraValue2 = item.getString();
                             request.setAttribute("paraName2", paraName2);
-                            request.setAttribute("loginId", paraValue2);
-                            loginId = paraValue2;
+                            //request.setAttribute("loginId", paraValue2);
+                            //loginId = paraValue2;
                         }
                         if(paraName1.equals("title")){
                             

@@ -49,7 +49,7 @@ public class DeleteServlet extends HttpServlet {
             // 処理後、次の画面に遷移する。
             response.sendRedirect("list");                        
         }
-            response.sendRedirect("list");    
+            //response.sendRedirect("list");    
         }
     }
 }

@@ -44,7 +44,8 @@ public class CreateServlet extends HttpServlet {
             response.sendRedirect("login");
         } else {
 
-            File path = new File("./upload");
+            String pathStr = getServletContext().getRealPath("./upload");
+            File path = new File(pathStr);
             DiskFileItemFactory  dfu = new DiskFileItemFactory();
             ServletFileUpload   sfu   = new ServletFileUpload(dfu); 
             sfu.setSizeMax(-1);
