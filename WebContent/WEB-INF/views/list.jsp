@@ -63,7 +63,10 @@
                 int showPostId = review.getPostId();
                 String strShowPostId = String.valueOf(showPostId);
                 String title = new String (review.getTitle().getBytes("ISO-8859-1"),"UTF-8");
-                //String image = new String (review.getImage().getBytes("ISO-8859-1"),"UTF-8");
+                String image = new String (review.getImage().getBytes("ISO-8859-1"),"UTF-8");
+                System.out.println(review.getImage());
+                System.out.println(image);
+
         %>
                         <div class="card">
                             <div class="card-image">
