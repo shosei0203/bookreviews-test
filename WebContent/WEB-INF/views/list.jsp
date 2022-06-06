@@ -64,8 +64,12 @@
                 String strShowPostId = String.valueOf(showPostId);
                 String title = new String (review.getTitle().getBytes("ISO-8859-1"),"UTF-8");
                 String image = new String (review.getImage().getBytes("ISO-8859-1"),"UTF-8");
-                System.out.println(review.getImage());
-                System.out.println(image);
+                System.out.println(review.getImage());　//日本語とれてそう
+                System.out.println(image);  //文字化け
+                String test = new String (review.getImage());
+                System.out.println(test);
+                String test2 = "./upload/" + test ;
+                System.out.println(test2);
 
         %>
                         <div class="card">
