@@ -63,12 +63,12 @@
                 int showPostId = review.getPostId();
                 String strShowPostId = String.valueOf(showPostId);
                 String title = new String (review.getTitle().getBytes("ISO-8859-1"),"UTF-8");
-                String image = new String (review.getImage().getBytes("ISO-8859-1"),"UTF-8");
+                //String image = new String (review.getImage().getBytes("ISO-8859-1"),"UTF-8");
         %>
                         <div class="card">
                             <div class="card-image">
                               <figure class="image">
-                                <img src="./upload/<%= image %>" alt="Placeholder image" />
+                                <img src="./upload/<%= review.getImage() %>" alt="Placeholder image" />
                               </figure>
                             </div>
                             <div class="card-content">
