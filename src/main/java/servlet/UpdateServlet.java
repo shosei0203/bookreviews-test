@@ -51,6 +51,8 @@ public class UpdateServlet extends HttpServlet {
             dfu.setSizeThreshold(1024); // バッファサイズ        
             dfu.setRepository(path);// 一時ファイルの保存先フォルダ
             sfu.setHeaderEncoding("UTF-8");
+            System.out.println(path);
+            System.out.println(path.getAbsolutePath());
             // セッション・画面の情報を変数に格納していく
             request.setAttribute("loginId", loginId);
 
