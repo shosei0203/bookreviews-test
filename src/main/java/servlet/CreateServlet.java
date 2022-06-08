@@ -48,10 +48,7 @@ public class CreateServlet extends HttpServlet {
             File path = new File(pathStr);
             DiskFileItemFactory  dfu = new DiskFileItemFactory();
             ServletFileUpload   sfu   = new ServletFileUpload(dfu); 
-            sfu.setSizeMax(-1);
-            dfu.setSizeThreshold(1024); // バッファサイズ        
-            dfu.setRepository(path);// 一時ファイルの保存先フォルダ
-            sfu.setHeaderEncoding("UTF-8");
+
             // セッション・画面の情報を変数に格納していく
             request.setAttribute("loginId", loginId);
 
@@ -85,6 +82,11 @@ public class CreateServlet extends HttpServlet {
                             image = (new File(image)).getName();
                             inPostChecker.imageChecker(image, item);
                             if (errorMsgResult.size() == 0) {
+
+                                sfu.setSizeMax(-1);
+                                dfu.setSizeThreshold(1024); // バッファサイズ        
+                                dfu.setRepository(path);// 一時ファイルの保存先フォルダ
+                                sfu.setHeaderEncoding("UTF-8");
                                 item.write(new File(path + "/" + image));
                             }
                         }//　アップロード用ファイル以外の場合

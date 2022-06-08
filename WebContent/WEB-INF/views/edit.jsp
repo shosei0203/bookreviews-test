@@ -5,12 +5,12 @@
   int showPostId = ((Integer)(request.getAttribute("postId"))).intValue();
   ArrayList<String> errorMessage = (ArrayList<String>)request.getAttribute("errorMessage");
   int intStars = ((Integer)(request.getAttribute("stars"))).intValue();
+  String image = (String)request.getAttribute("image");
   String tmp1 =  (String)request.getAttribute("title");
   String title = new String(tmp1.getBytes("ISO-8859-1"),"UTF-8");
   String tmp2 =  (String)request.getAttribute("content");
   String content = new String(tmp2.getBytes("ISO-8859-1"),"UTF-8");
-  String tmp3 = (String)request.getAttribute("image");
-  String image = new String(tmp3.getBytes("ISO-8859-1"),"UTF-8");
+
  %>
 <!DOCTYPE html>
 <html>
