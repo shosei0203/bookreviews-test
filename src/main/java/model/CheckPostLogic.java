@@ -14,7 +14,7 @@ public class CheckPostLogic {
             errorMessage.add(message);
         } else {
             int titleLength = title.length();
-            if (titleLength > 15) {
+            if (titleLength > 50) {
                 String message = "タイトルは15文字以内で入力してください";
                 errorMessage.add(message);
             }
