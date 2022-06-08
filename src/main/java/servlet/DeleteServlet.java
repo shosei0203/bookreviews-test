@@ -37,11 +37,12 @@ public class DeleteServlet extends HttpServlet {
             int postId = Integer.parseInt(request.getParameter("postId"));
             String image = request.getParameter("image");
 
-            String path = getServletContext().getRealPath("./upload");
-            File path2 = new File(path + "/" + image);
-
-            // 削除処理を実行する。
-            if(path2.delete()){
+            if(!(image.equals("NoImage.png"))){
+                String path = getServletContext().getRealPath("./upload");
+                File path2 = new File(path + "/" + image);
+                // 削除処理を実行する。
+                path2.delete();
+            }
 
             DeleteLogic deletePost = new DeleteLogic();
             deletePost.execute(postId, loginId);
@@ -51,6 +52,5 @@ public class DeleteServlet extends HttpServlet {
             response.sendRedirect("list");                        
         }
             //response.sendRedirect("list");    
-        }
     }
 }

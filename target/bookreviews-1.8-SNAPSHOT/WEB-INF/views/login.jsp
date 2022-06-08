@@ -73,7 +73,7 @@ pageEncoding="UTF-8"%> <%@ page import="java.util.*" %>
                     </div>
                   </div>
                   <div class="field">
-                    <label for="pass" class="text-margin">Passwrod</label>
+                    <label for="pass" class="text-margin">Password</label>
                     <div class="control has-icons-left">
                       <input
                         class="input is-success"
