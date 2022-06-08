@@ -39,9 +39,10 @@ public class DeleteServlet extends HttpServlet {
 
             String path = getServletContext().getRealPath("./upload");
             File path2 = new File(path + "/" + image);
-            if(path2.delete()){
 
             // 削除処理を実行する。
+            if(path2.delete()){
+
             DeleteLogic deletePost = new DeleteLogic();
             deletePost.execute(postId, loginId);
             request.setAttribute("message", postId + "を削除しました。");

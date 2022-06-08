@@ -52,8 +52,7 @@ public class UpdateServlet extends HttpServlet {
             request.setAttribute("loginId", loginId);
 
             try {
-                //(4)ファイルデータ(FileItemオブジェクト)を取得し、
-                //   Listオブジェクトとして返す
+                //変数の作成
                 List lists = sfu.parseRequest(request);
                 Iterator iterator = lists.iterator();
 
@@ -65,23 +64,29 @@ public class UpdateServlet extends HttpServlet {
                 FileItem item = null;
                 Random rand = new Random(); 
                 String randNum = Integer.toString(rand.nextInt(100));
-                // 入力値ﾁｪｯｸを行う。
+                
                 List<String> errorMsgResult = new ArrayList<String>();
                 CheckPostLogic inPostChecker = new CheckPostLogic();
 
-                //(5)ファイルデータ(FileItemオブジェクト)を順に処理
+                //ファイルデータ(FileItemオブジェクト)を処理
                 while (iterator.hasNext()) {
                     item = (FileItem) iterator.next();
                     if (!item.isFormField()) {
+                        //残念ポイント：同じファイル名がUPされた場合、uploadフォルダに同じ名前のファイルがあり落ちてしまうため、ランダム数字を付与している
                         image = randNum + item.getName();
+
+                        //画面で添付されていない場合
                         if(item.getSize()==0){
     
                             image = "NoImage.png";
 
+                        //画面で添付されている場合
                         } else if ((item.getSize()!=0) && (image != null) && (!image.equals(""))) {
 
                             image = (new File(image)).getName();
                             inPostChecker.imageChecker(image, item);
+                            errorMsgResult = inPostChecker.errorMsg();
+
                             if (errorMsgResult.size() == 0) {
 
                                 sfu.setSizeMax(-1);
@@ -91,8 +96,10 @@ public class UpdateServlet extends HttpServlet {
 
                                 item.write(new File(path + "/" + image));
                             }
-                        }//　アップロード用ファイル以外の場合
-                    }else if (item.isFormField()) {
+                        }
+                //画像以外の処理"multipart/form-data"のため画面から取得した項目順に処理していく
+                }else if (item.isFormField()) {
+                    
                         String paraName1 = item.getFieldName();  
                         
                         if(paraName1.equals("postId")){
