@@ -104,43 +104,43 @@ public class CreateServlet extends HttpServlet {
                         
                         if(paraName1.equals("postId")){
                             String paraValue1 = item.getString();
-                            request.setAttribute("paraName1", paraName1);
+                            //request.setAttribute("paraName1", paraName1);
                             request.setAttribute("postId", paraValue1);
                             postId = Integer.parseInt(paraValue1);
                         }
                         
                         if(paraName1.equals("loginId")){
-                            String paraName2 = item.getFieldName();
+                            //String paraName2 = item.getFieldName();
                             String paraValue2 = item.getString();
-                            request.setAttribute("paraName2", paraName2);
+                            //request.setAttribute("paraName2", paraName2);
                             request.setAttribute("loginId", paraValue2);
                             loginId = paraValue2;
                         }
                         if(paraName1.equals("title")){
-                            String paraName3 = item.getFieldName();
+                            //String paraName3 = item.getFieldName();
                             String paraValue3 = item.getString();
-                            request.setAttribute("paraName3", paraName3);
+                            //request.setAttribute("paraName3", paraName3);
                             title = new String(paraValue3.getBytes("ISO-8859-1"),"UTF-8");
                             request.setAttribute("title", title);
                         }
                         if(paraName1.equals("content")){
-                            String paraName4 = item.getFieldName();
+                            //String paraName4 = item.getFieldName();
                             String paraValue4 = item.getString();
-                            request.setAttribute("paraName4", paraName4);
+                            //request.setAttribute("paraName4", paraName4);
                             content = new String(paraValue4.getBytes("ISO-8859-1"),"UTF-8");
                             request.setAttribute("content", content);
                         }
                         if(paraName1.equals("stars")){
-                            String paraName5 = item.getFieldName();
+                            //String paraName5 = item.getFieldName();
                             String paraValue5 = item.getString();
-                            request.setAttribute("paraName3", paraName5);
+                            //request.setAttribute("paraName3", paraName5);
                             request.setAttribute("stars", paraValue5);
                             strStars = paraValue5;
                         }
                     }
                 }
                 // 入力値ﾁｪｯｸを行う。
-                inPostChecker.titleChecker(title);
+                inPostChecker.titleChecker(title,content);
                 inPostChecker.starsChecker(strStars);
                 errorMsgResult = inPostChecker.errorMsg();
                 // エラーメッセージがNullの時、正常とする。

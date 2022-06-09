@@ -8,7 +8,7 @@ import java.util.regex.Matcher;
 public class CheckPostLogic {
     List<String> errorMessage = new ArrayList<>();
 
-    public void titleChecker(String title) {
+    public void titleChecker(String title,String content) {
         if (title == "" || title.isEmpty()) {
 
             String message = "タイトルを入力してください";
@@ -19,6 +19,11 @@ public class CheckPostLogic {
                 String message = "タイトルは15文字以内で入力してください";
                 errorMessage.add(message);
             }
+        }
+        int contentLength = content.length();
+        if(contentLength > 300) {
+            String message = "本文は300文字以内で入力してください";
+            errorMessage.add(message);
         }
     }
 

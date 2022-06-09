@@ -104,7 +104,7 @@ public class UpdateServlet extends HttpServlet {
                         
                         if(paraName1.equals("postId")){
                             
-                            request.setAttribute("paraName1", paraName1);
+                            //request.setAttribute("paraName1", paraName1);
                             String paraValue1 = item.getString();
                             request.setAttribute("postId", paraValue1);
                             postId = Integer.parseInt(paraValue1);
@@ -119,31 +119,31 @@ public class UpdateServlet extends HttpServlet {
                         }
                         if(paraName1.equals("title")){
                             
-                            String paraName3 = item.getFieldName();
+                            //String paraName3 = item.getFieldName();
                             String paraValue3 = item.getString();
-                            request.setAttribute("paraName3", paraName3);
+                            //request.setAttribute("paraName3", paraName3);
                             title = new String(paraValue3.getBytes("ISO-8859-1"),"UTF-8");
                             request.setAttribute("title", title);
                         }
                         
                         if(paraName1.equals("content")){
-                            String paraName4 = item.getFieldName();
+                            //String paraName4 = item.getFieldName();
                             String paraValue4 = item.getString();
-                            request.setAttribute("paraName4", paraName4);
+                            //request.setAttribute("paraName4", paraName4);
                             content = new String(paraValue4.getBytes("ISO-8859-1"),"UTF-8");
                             request.setAttribute("content", content);
                         }
                         if(paraName1.equals("stars")){
                                 
-                            String paraName5 = item.getFieldName();
+                            //String paraName5 = item.getFieldName();
                             String paraValue5 = item.getString();
-                            request.setAttribute("paraName3", paraName5);
+                            //request.setAttribute("paraName5", paraName5);
                             request.setAttribute("stars", paraValue5);
                             strStars = paraValue5;
                         }
                     }
                 }
-                inPostChecker.titleChecker(title);
+                inPostChecker.titleChecker(title,content);
                 inPostChecker.starsChecker(strStars);
                 errorMsgResult = inPostChecker.errorMsg();
                 
