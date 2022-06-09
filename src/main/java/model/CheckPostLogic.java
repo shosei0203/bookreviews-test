@@ -10,11 +10,12 @@ public class CheckPostLogic {
 
     public void titleChecker(String title) {
         if (title == "" || title.isEmpty()) {
+
             String message = "タイトルを入力してください";
             errorMessage.add(message);
         } else {
             int titleLength = title.length();
-            if (titleLength > 50) {
+            if (titleLength > 15) {
                 String message = "タイトルは15文字以内で入力してください";
                 errorMessage.add(message);
             }

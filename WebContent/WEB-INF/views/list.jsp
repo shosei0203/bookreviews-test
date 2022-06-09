@@ -62,8 +62,6 @@
             for (ReviewsDTO review : reviews) {
                 int showPostId = review.getPostId();
                 String strShowPostId = String.valueOf(showPostId);
-                String title = new String (review.getTitle().getBytes("ISO-8859-1"),"UTF-8");
-
         %>
                         <div class="card">
                             <div class="card-image">
@@ -80,7 +78,7 @@
                                     </form>
                                      <a href="#" 
                                      onclick="document.<%='a'+strShowPostId %>.submit();return false;">
-                                      <%= title %></a>
+                                      <%= review.getTitle() %></a>
                                   </p>
                                 </div>
                               </div>

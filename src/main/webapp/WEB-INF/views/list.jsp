@@ -62,12 +62,11 @@
             for (ReviewsDTO review : reviews) {
                 int showPostId = review.getPostId();
                 String strShowPostId = String.valueOf(showPostId);
-                String title = new String (review.getTitle().getBytes("ISO-8859-1"),"UTF-8");
         %>
                         <div class="card">
                             <div class="card-image">
                               <figure class="image">
-                                <img src="./upload/<%= review.getImage() %>?20220521" alt="Placeholder image" />
+                                <img src= "./upload/<%= review.getImage() %>" alt="Placeholder image" />
                               </figure>
                             </div>
                             <div class="card-content">
@@ -79,7 +78,7 @@
                                     </form>
                                      <a href="#" 
                                      onclick="document.<%='a'+strShowPostId %>.submit();return false;">
-                                      <%= title %></a>
+                                      <%= review.getTitle() %></a>
                                   </p>
                                 </div>
                               </div>

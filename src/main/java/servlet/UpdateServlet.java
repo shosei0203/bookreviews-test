@@ -122,16 +122,16 @@ public class UpdateServlet extends HttpServlet {
                             String paraName3 = item.getFieldName();
                             String paraValue3 = item.getString();
                             request.setAttribute("paraName3", paraName3);
-                            request.setAttribute("title", paraValue3);
-                            title = paraValue3;
+                            title = new String(paraValue3.getBytes("ISO-8859-1"),"UTF-8");
+                            request.setAttribute("title", title);
                         }
                         
                         if(paraName1.equals("content")){
                             String paraName4 = item.getFieldName();
                             String paraValue4 = item.getString();
-                            request.setAttribute("paraName3", paraName4);
-                            request.setAttribute("content", paraValue4);
-                            content = paraValue4;
+                            request.setAttribute("paraName4", paraName4);
+                            content = new String(paraValue4.getBytes("ISO-8859-1"),"UTF-8");
+                            request.setAttribute("content", content);
                         }
                         if(paraName1.equals("stars")){
                                 
