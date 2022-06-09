@@ -45,13 +45,19 @@ public class UserCreateServlet extends HttpServlet {
                     request.setAttribute("message", "このIDはすでに登録されています。");
 
                 } else {
+                    //★本番環境用に追加★
+                    request.setAttribute("message", "このIDはすでに登録されています。");
 
                     // 画面の値をUserFormに格納する。
                     UserForm loginUser = new UserForm(loginId, pass);
 
-                    // ログインIDとパスワード登録後、DB情報から取得できることを確認する。
-                    UserCreateLogic userCreate = new UserCreateLogic();
-                    boolean isLogin = userCreate.execute(loginUser);
+                    //★本番環境用にコメントアウト
+                    //ログインIDとパスワード登録後、DB情報から取得できることを確認する。
+                    //UserCreateLogic userCreate = new UserCreateLogic();
+                    //boolean isLogin = userCreate.execute(loginUser);
+
+                    //★本番環境用に追加★
+                    boolean isLogin = false;
 
                     if (isLogin) {
                         // セッションを作成する
@@ -66,8 +72,9 @@ public class UserCreateServlet extends HttpServlet {
                         dispatcher.forward(request, response);
 
                     } else {
+                        //★本番環境用にコメントアウト
                         // エラーメッセージを格納し、ログイン画面に戻す。
-                        request.setAttribute("message", "セッションが切れました。再度ログインしてください。");
+                        //request.setAttribute("message", "セッションが切れました。再度ログインしてください。");
                     }
                 }
             }

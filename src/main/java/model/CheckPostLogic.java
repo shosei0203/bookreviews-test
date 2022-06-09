@@ -21,8 +21,8 @@ public class CheckPostLogic {
             }
         }
         int contentLength = content.length();
-        if(contentLength > 300) {
-            String message = "本文は300文字以内で入力してください";
+        if(contentLength > 150) {
+            String message = "本文は150文字以内で入力してください";
             errorMessage.add(message);
         }
     }
